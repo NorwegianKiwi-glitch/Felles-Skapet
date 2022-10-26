@@ -22,7 +22,7 @@ body {
 
 .slider {
     -webkit-appearance: none;
-    width: 40%;
+    width: 25%;
     height: 10px;
     border-radius: 5px;
     background: #d3d3d3;
@@ -32,10 +32,12 @@ body {
     transition: opacity .2s;
 }
 
+/*skygge når musen er over slideren*/
 .slider:hover {
     opacity: 1;
 }
 
+/*slider dot farge og størelse*/
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
