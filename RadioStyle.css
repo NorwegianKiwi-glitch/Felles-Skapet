@@ -1,11 +1,11 @@
 /**/
 /*Bakgrunnsfarge på nettsiden og fonten som blir brukt*/
 body {
-    background-color: #333;
-    color: #fff;
+    background-color: #fff;
+    color: #333;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
     justify-content: center;
     text-align: center;
     min-height: 10vh;
@@ -13,43 +13,91 @@ body {
     padding: 0;
 }
 
-/*kode hentet fra: https://www.youtube.com/watch?v=Fb-lny3-7Lo&t=82s*/
-/*Sørger for at innholdet på nettsiden ikke går ut til kantene på skjermen*/
-.wrapper {
-    margin: 0 auto;
-    width: 650px;
-}
-
-/*kode hentet fra: https://www.youtube.com/watch?v=mFgltjfVV6A&list=PL0eyrZgxdwhwNC5ppZo_dYGVjerQY3xYU&index=14*/
-/*css for å style nav bar*/
-nav {
-    width: 100%;
-    height: 110px;
-    background-color: #64d7fa;
-    text-align: left;
-    margin-left: 0;
+.navbar {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    background-color: antiquewhite;
+    overflow: hidden;
 }
 
 ul {
-    margin-left: -55px;
+    flex: 1;
+    text-align: right;
 }
 
 ul li {
-    list-style: none;
     display: inline-block;
-    float: left;
-    line-height: 65px;
-    margin-left: 0
+    list-style: none;
+    margin: 0 25px;
 }
 
 ul li a {
-    display: block;
     text-decoration: none;
-    font-size: 16px;
-    color: #fff;
-    padding: 0 20px;
+    color: black;
+    padding: 0 10px;
+    position: relative;
 }
 
-ul li a:hover {
-    color: #333333;
+ul li a::after {
+    content: '';
+    width: 0;
+    height: 10px;
+    background: #92dcfc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -50px;
+    transition: 0.5s;
 }
+
+ul li a:hover:after {
+    width: 100%;
+}
+
+.hero {
+    width: 100%;
+    margin: auto;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+/*kode hentet fra: https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle*/
+input[type='radio'] {
+    -webkit-appearance:none;
+    width:50px;
+    height:50px;
+    border:1px solid darkgray;
+    border-radius:50%;
+    outline:none;
+}
+
+input[type='radio']:hover {
+    box-shadow:0 0 5px 0px orange inset;
+}
+
+input[type='radio']:before {
+    content:'';
+    display:block;
+    width:70%;
+    height:70%;
+    margin: 20% auto;
+    border-radius:50%;
+    display: none;
+}
+
+input[type='radio']:checked:before {
+    background:antiquewhite;
+    display: inline-block;
+}
+
+/*kode hentet fra: https://www.youtube.com/watch?v=Fb-lny3-7Lo&t=82s*/
+    /*Sørger for at innholdet på nettsiden ikke går ut til kantene på skjermen*/
+    .wrapper {
+        margin: 0 auto;
+        width: 50%;
+    }
