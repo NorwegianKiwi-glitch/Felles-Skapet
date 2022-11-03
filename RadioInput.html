@@ -1,0 +1,118 @@
+<!-- -->
+<!DOCTYPE html>
+<!--Språk brukt på nettsiden-->
+<html lang="no-NB">
+<head>
+    <meta charset="UTF-8">
+
+    <!--Tittel på nettsiden-->
+    <title>How-We-Roll</title>
+
+  <!--kobler css kode til html dokumentet-->
+  <link rel="stylesheet" href="RadioStyle.css">
+</head>
+<body>
+
+<!--Header på nettsiden-->
+<nav>
+  <h1>How-We-Roll</h1>
+    <ul>
+      <li><a href=RadioFrontside.html> Forside </a></li>
+      <li><a href="RadioInput.html"> Personlighettest </a></li>
+      <li><a href="RadioRapport.html"> Rapport </a></li>
+    </ul>
+</nav>
+
+
+<div class="wrapper">
+  <!--Underoverskrift som forteller brukeren hva den skal gjøre-->
+  <h2>Personlighetstest</h2>
+
+  <!--Input felt for at brukeren skal skrive inn navnet sitt-->
+  <div>
+    <span>
+      <label for="name">Navn:</label>
+      <input type="name" id="name" name="name" placeholder="Ditt fornavn" required>
+    </span>
+  </div>
+
+  <br>
+  <br>
+
+  <!--Kode fra: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio-->
+  <form>
+    <!--fieldset er brukt for å gruppere alle spørsmålene i spørreskjemaet-->
+    <fieldset>
+      <!--Gir tittel til "fieldset" og beskriver hva brukeren skal gjøre -->
+      <legend>Her skal du svare på spørsmål om hvor godt påstandene passer for deg:</legend>
+      <div>
+        <!--Viser spørsmålet som brukeren skal svare på-->
+        <h4>Liker du å jobbe i grupper</h4>
+        <input type="radio" id="LikeJobbeIGrupper1"
+               name="LikeJobbeIGrupper" value="vu">
+        <label for="LikeJobbeIGrupper1">Veldig uenig</label>
+
+        <input type="radio" id="LikeJobbeIGrupper2"
+               name="LikeJobbeIGrupper" value="lu">
+        <label for="LikeJobbeIGrupper2">Litt uenig</label>
+
+        <input type="radio" id="LikeJobbeIGrupper3"
+               name="LikeJobbeIGrupper" value="e">
+        <label for="LikeJobbeIGrupper3">Enig</label>
+
+        <input type="radio" id="LikeJobbeIGrupper4"
+               name="LikeJobbeIGrupper" value="le">
+        <label for="LikeJobbeIGrupper4">Litt enig</label>
+
+        <input type="radio" id="LikeJobbeIGrupper5"
+               name="LikeJobbeIGrupper" value="ve">
+        <label for="LikeJobbeIGrupper5">Veldig enig</label>
+
+        <input type="radio" id="LikeJobbeIGrupper6"
+               name="LikeJobbeIGrupper" value="n">
+        <label for="LikeJobbeIGrupper6">Nøytral</label>
+      </div>
+        <br> <!--Lage mellomrom mellom spørsmålene-->
+        <br>
+      <div>
+        <h4>Liker du å jobbe om morgen</h4>
+        <input type="radio" id="LikeJobbeOmMorgen1"
+               name="likeJobbeOmMorgen" value="vu">
+        <label for="LikeJobbeOmMorgen1">Veldig uenig</label>
+
+        <input type="radio" id="LikeJobbeOmMorgen2"
+               name="likeJobbeOmMorgen" value="lu">
+        <label for="LikeJobbeOmMorgen2">Litt uenig</label>
+
+        <input type="radio" id="LikeJobbeOmMorgen3"
+               name="likeJobbeOmMorgen" value="e">
+        <label for="LikeJobbeOmMorgen3">Enig</label>
+
+        <input type="radio" id="LikeJobbeOmMorgen4"
+               name="likeJobbeOmMorgen" value="le">
+        <label for="LikeJobbeOmMorgen4">Litt enig</label>
+
+        <input type="radio" id="LikeJobbeOmMorgen5"
+               name="likeJobbeOmMorgen" value="ve">
+        <label for="LikeJobbeOmMorgen5">Veldig enig</label>
+
+        <input type="radio" id="LikeJobbeOmMorgen6"
+               name="likeJobbeOmMorgen" value="n">
+        <label for="LikeJobbeOmMorgen6">Nøytral</label>
+      </div>
+    </fieldset>
+
+    <div>
+      <br>
+      <input type="reset" value="Nullstill">
+      <input type="submit" value="Send inn">
+    </div>
+</div>
+
+
+  <!--Kobler JavaScript filen til HTML dokumentet-->
+  <script type="javascript" src="hello.js"></script>
+
+</form>
+</body>
+</html>
