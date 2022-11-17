@@ -1,7 +1,7 @@
-/**/
+/*aogaa*/
 /*Bakgrunnsfarge på nettsiden og fonten som blir brukt*/
 body {
-    background-color: #fff;
+    background-color: whitesmoke;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -9,10 +9,20 @@ body {
     justify-content: center;
     text-align: center;
     min-height: 10vh;
-    margin: 0;
+    margin: fill;
     padding: 0;
 }
 
+input {
+    background-color: whitesmoke;
+}
+
+.navbar {
+    margin: 0;
+    display: block;
+    align-items: center;
+    padding: 25px;
+    /*background-color: antiquewhite;*/
 .navbar {
     margin: 0;
     display: flex;
@@ -40,11 +50,12 @@ ul li a {
     position: relative;
 }
 
+/*Navbar linker*/
 ul li a::after {
     content: '';
     width: 0;
     height: 10px;
-    background: #92dcfc;
+    background: #8DA8AE;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -52,26 +63,36 @@ ul li a::after {
     transition: 0.5s;
 }
 
+/*Navbar hover effekt*/
 ul li a:hover:after {
     width: 100%;
+    background-color: #8DA8AE;
 }
 
+/*Navbar når siden man er på toppen av siden*/
 .hero {
     width: 100%;
-    margin: auto;
+    margin-top: 0;
+    height: 80px;
+    background-color: antiquewhite;
 }
 
+/*Navbar scroll effekt*/
 .sticky {
     position: fixed;
-    top: 0;
+    top: 0px;
     width: 100%;
+    height: 100px;
+    margin: 0;
+    background-color: antiquewhite;
 }
+
 /*kode hentet fra: https://stackoverflow.com/questions/23167637/is-it-possible-to-change-the-color-of-selected-radio-buttons-center-circle*/
 input[type='radio'] {
     -webkit-appearance:none;
-    width:50px;
-    height:50px;
-    border:1px solid darkgray;
+    width:30px;
+    height:30px;
+    border:2px solid darkgray;
     border-radius:50%;
     outline:none;
 }
@@ -83,21 +104,22 @@ input[type='radio']:hover {
 input[type='radio']:before {
     content:'';
     display:block;
-    width:70%;
-    height:70%;
-    margin: 20% auto;
+
+    width:100%;
+    height:100%;
+    margin: 20% fill;
     border-radius:50%;
     display: none;
 }
 
 input[type='radio']:checked:before {
-    background:antiquewhite;
+    background: #8DA8AE;
     display: inline-block;
 }
 
 /*kode hentet fra: https://www.youtube.com/watch?v=Fb-lny3-7Lo&t=82s*/
-    /*Sørger for at innholdet på nettsiden ikke går ut til kantene på skjermen*/
-    .wrapper {
-        margin: 0 auto;
-        width: 50%;
-    }
+/*Sørger for at innholdet på nettsiden ikke går ut til kantene på skjermen*/
+.wrapper {
+    margin: 0 auto;
+    width: 50%;
+}
