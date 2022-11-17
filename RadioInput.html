@@ -18,14 +18,17 @@
 <!--Her skal HTML kode skrives inn-->
 <body>
 
-<!--Header på nettsiden-->
 <nav><!--navigation section element. Ment for å lettere kunne navigere rundt på nettsiden med linker som tar folk videre.-->
-  <h1>How-We-Roll</h1> <!--Overskrift i Headeren-->
+  <div class = "hero">
+    <div id="navbar">
+      <h1>How-We-Roll</h1> <!--Overskrift i Headeren-->
     <ul>
       <li><a href=RadioFrontside.html> Forside </a></li><!--Link til Frontsiden-->
       <li><a href="RadioInput.html"> Personlighettest </a></li><!--Link til Input siden-->
       <li><a href="RadioRapport.html"> Rapport </a></li><!--Link til Rapprot siden-->
     </ul>
+    </div>
+  </div>
 </nav>
 
 
@@ -403,6 +406,24 @@
 <!----------------------------------------------------------------------------------------------------------------->
 <!--Javascript kode-->
 <script>
+  // When the user scrolls the page, execute myFunction
+  window.onscroll = function() {myFunction()};
+
+  // Get the navbar
+  var navbar = document.getElementById("navbar");
+
+  // Get the offset position of the navbar
+  var sticky = navbar.offsetTop;
+
+  // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  function myFunction() {
+    if (window.pageYOffset >= sticky) {
+      navbar.classList.add("sticky")
+    } else {
+      navbar.classList.remove("sticky");
+    }
+  }
+
 //kode hentet fra: https://github.com/Gruppe-6B/how-we-roll.git
   // Example POST method implementation using fetch:
   async function postData(url = '', data = {}) {
