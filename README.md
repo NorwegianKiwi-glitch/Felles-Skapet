@@ -14,4 +14,4 @@ Når vi var ferdig med en oppgave slik at den funker, men forsatt har forsatt ti
 ## Refleksjoner på oppgaven og sammarbeid
 ### Ting som kan forbedres og ikke er ferdig
 ### Våre refleksjoner rundt oppgaven
-### Være refleksjoner om sammarbeidet innad i gruppen
+### Våre refleksjoner om sammarbeidet innad i gruppen
