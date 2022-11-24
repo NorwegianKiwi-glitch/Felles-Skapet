@@ -1,0 +1,97 @@
+/* AOOOOGGAAA */
+body {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    min-height: 10vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+h1, h2, h4 {
+    font-family: Arial;
+    color: #3B3355;
+}
+
+/* --- Custom IDs and classes --- */
+#content {
+    margin: 100px 0 0 0;
+}
+
+/* Navigationbar styles */
+
+#navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    top: 0;
+    position: fixed;
+    background-color: #3B3355;
+    overflow: hidden;
+    min-width: 500px;
+}
+
+#navbar h1 {
+    color: #FEFCFD;
+    padding: 0 0 0 7px;
+}
+
+#navbar ul {
+    flex: 1;
+    text-align: right;
+    padding: 0 30px 0 0;
+}
+
+#navbar ul li {
+    display: inline-block;
+    list-style: none;
+    position: relative;
+}
+
+#navbar ul li a {
+    position: relative;
+    margin: 0;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #FEFCFD;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+#navbar ul li a:hover {
+    margin: 0;
+    border-bottom: 4px solid #FFFFFF;
+}
+
+/* Form styles */
+#formWrapper {
+    margin: 0 auto;
+    min-width: 50%;
+    max-width: 65%;
+}
+
+#formWrapper fieldset {
+    margin: 25px 0 0 0;
+}
+
+#formWrapper fieldset legend {
+    font-weight: bold;
+    color: #3B3355;
+}
+
+#formWrapper div {
+    margin: 25px 0 40px 0;
+}
+
+#formWrapper h4 {
+    margin: 0 0 10px 0;
+}
+
+input[type="radio"]:checked+label {
+    font-weight: bold;
+    color: #3B3355;
+}
