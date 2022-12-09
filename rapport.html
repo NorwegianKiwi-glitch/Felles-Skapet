@@ -22,423 +22,424 @@
                 </ul>
 			</div>
 		</nav>
-       <div class="main-content">
-            <h2>How-we-roll rapport</h2>
-            <p>Her er en visuell fremstilling av gruppe 1A sine innmeldinger i skjema "HowWeRoll". Vi har benyttet Canvas-API for å vise dataene fra gruppen. </p>
-       </div>
-        <div>
-            <canvas id="dineResultater" width="1000" height="580" style="border:1px solid #000000; margin-left: 20px">></canvas>
-        </div>
-        <script>
-            //Morgenfugl eller nattugle
-            var canvas = document.getElementById("dineResultater"); // Cavnvas ID
-            var ctx = canvas.getContext("2d"); // Sier at canvas skal være 2d
+        <div id="content">
+            <form id="formWrapper">
+               <div class="main-content">
+                    <h1>How-we-roll rapport</h1>
+                    <p>Her er en visuell fremstilling av dine resultater fra personlighetstesten.
+                        Vi har brukt Canvas for å visuelt vise hvordan resultatsiden ville sett ut, hvis vi hadde fått til å gjøre den dynamisk.
+                        Vi har brukt Viktor sine resultater som utgangspunk for denne demonstrasjonen</p>
 
-            ctx.font = "15px Arial"; //font for Nøytral i toppen av Canvaset
-            ctx.fillText("Nøytral",475,20) //plassering av tekst
-            ctx.stroke();
+                </div>
+                    <div>
+                        <canvas id="dineResultater" width="1000" height="580" style="border:1px solid #000000; margin-left: 20px">></canvas>
+                    </div>
+                <script>
+                    //Morgenfugl eller nattugle
+                    var canvas = document.getElementById("dineResultater"); // Cavnvas ID
+                    var ctx = canvas.getContext("2d"); // Sier at canvas skal være 2d
 
-            //Linje for resultat av  spørsmål Liker du å jobbe om morgen
-            ctx.font = "20px Arial";
-            ctx.fillText("Morgenfugl", 20, 50);
-            ctx.fillText("Nattugle", 850, 50);
+                    ctx.font = "15px Arial"; //font for Nøytral i toppen av Canvaset
+                    ctx.fillText("Nøytral",475,20) //plassering av tekst
+                    ctx.stroke();
 
-            ctx.moveTo(180, 45); //Linje start
-            ctx.lineTo(830,45); //Linje slutt
-            ctx.stroke();
+                    //Linje for resultat av  spørsmål Liker du å jobbe om morgen
+                    ctx.font = "20px Arial";
+                    ctx.fillText("Morgenfugl", 20, 50);
+                    ctx.fillText("Nattugle", 850, 50);
 
-            ctx.beginPath();
-            ctx.arc(500, 45, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-            ctx.fillStyle = "green" //farge på sirkel
-            ctx.fill(); //fyller fargen på sirkel
-            ctx.stroke(); //linje rundt sirkel
-        </script>
+                    ctx.moveTo(180, 45); //Linje start
+                    ctx.lineTo(830,45); //Linje slutt
+                    ctx.stroke();
 
-        <script>
-            // jobbe alene eller i gruppe
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Jobbe alene", 20, 100);
-            ctx.fillText("Jobbe sammen", 850, 100);
+                    ctx.beginPath();
+                    ctx.arc(500, 45, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
+                    ctx.fillStyle = "green" //farge på sirkel
+                    ctx.fill(); //fyller fargen på sirkel
+                    ctx.stroke(); //linje rundt sirkel
+                </script>
 
-            ctx.moveTo(180, 95); //Linje start
-            ctx.lineTo(830,95); //Linje slutt
-            ctx.stroke();
+                <script>
+                    // jobbe alene eller i gruppe
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Jobbe alene", 20, 100);
+                    ctx.fillText("Jobbe sammen", 850, 100);
 
-            ctx.beginPath();
-            ctx.arc(620, 95, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-            ctx.fillStyle = "green" //farge på sirkel
-            ctx.fill(); //fyller fargen på sirkel
-            ctx.stroke(); //linje rundt sirkel
-        </script>
+                    ctx.moveTo(180, 95); //Linje start
+                    ctx.lineTo(830,95); //Linje slutt
+                    ctx.stroke();
 
-        <script>
-            //gå i dybe eller rett på sak
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Gå i dybe", 20, 150);
-            ctx.fillText("Rett på sak", 850, 150);
+                    ctx.beginPath();
+                    ctx.arc(620, 95, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
+                    ctx.fillStyle = "green" //farge på sirkel
+                    ctx.fill(); //fyller fargen på sirkel
+                    ctx.stroke(); //linje rundt sirkel
+                </script>
 
-            ctx.moveTo(180, 145);
-            ctx.lineTo(830,145);
-            ctx.stroke();
+                <script>
+                    //gå i dybe eller rett på sak
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Gå i dybe", 20, 150);
+                    ctx.fillText("Rett på sak", 850, 150);
 
-            ctx.beginPath();
-            ctx.arc(500, 145, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 145);
+                    ctx.lineTo(830,145);
+                    ctx.stroke();
 
-        <script>
-            //diskuter problem eller gå rett på sak
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Diskutere problem", 20, 200);
-            ctx.fillText("Gå videre", 850, 200);
+                    ctx.beginPath();
+                    ctx.arc(500, 145, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 195);
-            ctx.lineTo(830,195);
-            ctx.stroke();
+                <script>
+                    //diskuter problem eller gå rett på sak
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Diskutere problem", 20, 200);
+                    ctx.fillText("Gå videre", 850, 200);
 
-            ctx.beginPath();
-            ctx.arc(500, 195, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 195);
+                    ctx.lineTo(830,195);
+                    ctx.stroke();
 
-        <script>
-            //verbalsk prosess eller mental prosess
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Snakke", 20, 250);
-            ctx.fillText("Tenke", 850, 250);
+                    ctx.beginPath();
+                    ctx.arc(500, 195, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 245);
-            ctx.lineTo(830,245);
-            ctx.stroke();
+                <script>
+                    //verbalsk prosess eller mental prosess
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Snakke", 20, 250);
+                    ctx.fillText("Tenke", 850, 250);
 
-            ctx.beginPath();
-            ctx.arc(700, 245, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 245);
+                    ctx.lineTo(830,245);
+                    ctx.stroke();
 
-        <script>
-            //avbryt mens jeg snakker
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("La meg snakke", 20, 300);
-            ctx.fillText("Avbryt meg", 850, 300);
+                    ctx.beginPath();
+                    ctx.arc(700, 245, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 295);
-            ctx.lineTo(830,295);
-            ctx.stroke();
+                <script>
+                    //avbryt mens jeg snakker
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("La meg snakke", 20, 300);
+                    ctx.fillText("Avbryt meg", 850, 300);
 
-            ctx.beginPath();
-            ctx.arc(300, 295, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 295);
+                    ctx.lineTo(830,295);
+                    ctx.stroke();
 
-        <script>
-            //video chat eller melding
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Chat", 20, 350);
-            ctx.fillText("Melding", 850, 350);
+                    ctx.beginPath();
+                    ctx.arc(300, 295, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 345);
-            ctx.lineTo(830,345);
-            ctx.stroke();
+                <script>
+                    //video chat eller melding
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Chat", 20, 350);
+                    ctx.fillText("Melding", 850, 350);
 
-            ctx.beginPath();
-            ctx.arc(380, 345, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 345);
+                    ctx.lineTo(830,345);
+                    ctx.stroke();
 
-        <script>
-            //Fysisk møte eller digitalt møte
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Digitalt møte", 20, 400);
-            ctx.fillText("Fysisk møte", 850, 400);
+                    ctx.beginPath();
+                    ctx.arc(380, 345, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 395);
-            ctx.lineTo(830,395);
-            ctx.stroke();
+                <script>
+                    //Fysisk møte eller digitalt møte
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Digitalt møte", 20, 400);
+                    ctx.fillText("Fysisk møte", 850, 400);
 
-            ctx.beginPath();
-            ctx.arc(700, 395, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 395);
+                    ctx.lineTo(830,395);
+                    ctx.stroke();
 
-        <script>
-            //mange møter eller få møter
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Mange møter", 20, 450);
-            ctx.fillText("Få møter", 850, 450);
+                    ctx.beginPath();
+                    ctx.arc(700, 395, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 445);
-            ctx.lineTo(830,445);
-            ctx.stroke();
+                <script>
+                    //mange møter eller få møter
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Mange møter", 20, 450);
+                    ctx.fillText("Få møter", 850, 450);
 
-            ctx.beginPath();
-            ctx.arc(380, 445, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 445);
+                    ctx.lineTo(830,445);
+                    ctx.stroke();
 
-        <script>
-            //fast jobb tid eller bestemme selv
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Fast jobb tid", 20, 500);
-            ctx.fillText("Jobb når du vil", 850, 500);
+                    ctx.beginPath();
+                    ctx.arc(380, 445, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 495);
-            ctx.lineTo(830,495);
-            ctx.stroke();
+                <script>
+                    //fast jobb tid eller bestemme selv
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Fast jobb tid", 20, 500);
+                    ctx.fillText("Jobb når du vil", 850, 500);
 
-            ctx.beginPath();
-            ctx.arc(620, 495, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 495);
+                    ctx.lineTo(830,495);
+                    ctx.stroke();
 
-        <script>
-            // annanas på pizza eller en krigsforbryter
-            ctx.font = "20px Arial";
-            ctx.fillStyle ="black";
-            ctx.fillText("Annanas på pizza", 20, 550);
-            ctx.fillText("Send til graven", 850, 550);
+                    ctx.beginPath();
+                    ctx.arc(620, 495, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
 
-            ctx.moveTo(180, 545);
-            ctx.lineTo(830,545);
-            ctx.stroke();
+                <script>
+                    // annanas på pizza eller en krigsforbryter
+                    ctx.font = "20px Arial";
+                    ctx.fillStyle ="black";
+                    ctx.fillText("Annanas på pizza", 20, 550);
+                    ctx.fillText("Send til graven", 850, 550);
 
-            ctx.beginPath();
-            ctx.arc(700, 545, 10, 0, 2 * Math.PI);
-            ctx.fillStyle = "green";
-            ctx.fill();
-            ctx.stroke();
-        </script>
+                    ctx.moveTo(180, 545);
+                    ctx.lineTo(830,545);
+                    ctx.stroke();
 
+                    ctx.beginPath();
+                    ctx.arc(700, 545, 10, 0, 2 * Math.PI);
+                    ctx.fillStyle = "green";
+                    ctx.fill();
+                    ctx.stroke();
+                </script>
+                <div>
+                    <p>
+                        Navn: <span id="name1"></span><br> <!--skriver name og name verdi på nettsiden-->
+                        Like Jobbe I Grupper: <span id="LikeJobbeIGrupper1"></span><br>
+                        like Jobbe Om Morgen: <span id="likeJobbeOmMorgen1"></span><br>
+                        Fortell Problemet I Dypde: <span id="FortellProblemetIDypde1"></span><br>
+                        Snakke Om Problemet: <span id="SnakkeOmProblemet1"></span><br>
+                        Verbal Prosses Over Mental Prosses: <span id="VerbalProssesOverMentalProsses1"></span><br>
+                        Avbryt Mens Jeg Snakker: <span id="AvbrytMensJegSnakker1"></span><br>
+                        Video Chat Over Melding: <span id="VideoChatOverMelding1"></span><br>
+                        Fysisk Mote Over Digitalt Mote: <span id="FysiskMoteOverDigitaltMote1"></span><br>
+                        Mange Moter Over Fa Moter: <span id="MangeMoterOverFaMoter1"></span><br>
+                        Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv1"></span><br>
+                        Ananas Pa Pizza: <span id="AnanasPaPizza1"></span><br>
 
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Navn: <span id="name2"></span><br> <!--skriver name og name verdi på nettsiden-->
+                        Like Jobbe I Grupper: <span id="LikeJobbeIGrupper2"></span><br>
+                        like Jobbe Om Morgen: <span id="likeJobbeOmMorgen2"></span><br>
+                        Fortell Problemet I Dypde: <span id="FortellProblemetIDypde2"></span><br>
+                        Snakke Om Problemet: <span id="SnakkeOmProblemet2"></span><br>
+                        Verbal Prosses Over Mental Prosses: <span id="VerbalProssesOverMentalProsses2"></span><br>
+                        Avbryt Mens Jeg Snakker: <span id="AvbrytMensJegSnakker2"></span><br>
+                        Video Chat Over Melding: <span id="VideoChatOverMelding2"></span><br>
+                        Fysisk Mote Over Digitalt Mote: <span id="FysiskMoteOverDigitaltMote2"></span><br>
+                        Mange Moter Over Fa Moter: <span id="MangeMoterOverFaMoter2"></span><br>
+                        Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv2"></span><br>
+                        Ananas Pa Pizza: <span id="AnanasPaPizza2"></span><br>
 
-            <!--<p id='localstorage-tekst'></p>
-            <h4>Når jobber du best?</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" height="75" width="1100" id="hours-svg" style='border: 1px solid black;'>
-                <line x1="550" y1="30" x2="550" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" /> &lt;!&ndash;Linjene i rapport vinduene&ndash;&gt;
-                <line x1="50" y1="30" x2="50" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <line x1="1050" y1="30" x2="1050" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <rect width="1100px" height="30px" fill="#264653"/>
-                <g font-size="15" font-family="sans-serif" fill="#e76f51" stroke="none">
-                    <text x="10" y="20" dx="0">MORGENFUGL</text>
-                    <text x="515" y="20" dx="0">NØYTRAL</text>
-                    <text x="1000" y="20" dx="0">NATTERAVN</text>
-                </g>
-            </svg>
-            <br>
-            <h4>Hvor aktiv er du?</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" height="75" width="1100" id="akt-svg" style='border: 1px solid black;'>
-              
-              <line x1="550" y1="30" x2="550" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <line x1="50" y1="30" x2="50" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                  <line x1="1050" y1="30" x2="1050" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                    <rect width="1100px" height="30px" fill="#264653"/>
-                    <g font-size="15" font-family="sans-serif" fill="#e76f51" stroke="none">
-                      <text x="10" y="20" dx="0">SOFAGRIS</text>
-                      <text x="515" y="20" dx="0">NØYTRAL</text>
-                      <text x="1000" y="20" dx="0">ATLETISK</text>
-                    </g>
-            </svg>
-            <br>
-            <h4>Hvordan foretrekker du å jobbe?</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" height="75" width="1100" id="work-svg" style='border: 1px solid black;'>
-              
-              <line x1="550" y1="30" x2="550" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <line x1="50" y1="30" x2="50" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                  <line x1="1050" y1="30" x2="1050" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                    <rect width="1100px" height="30px" fill="#264653"/>
-                    <g font-size="15" font-family="sans-serif" fill="#e76f51" stroke="none">
-                      <text x="10" y="20" dx="0">SELVSTENDIG</text>
-                      <text x="515" y="20" dx="0">NØYTRAL</text>
-                      <text x="1000" y="20" dx="0">SAMARBEID</text>
-                    </g>
-            </svg>
-            <br>
-            <h4>Foretrekker du hjemmekontor eller fysisk oppmøte?</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" height="75" width="1100" id="dify-svg" style='border: 1px solid black;'>
-              
-              <line x1="550" y1="30" x2="550" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <line x1="50" y1="30" x2="50" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                  <line x1="1050" y1="30" x2="1050" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                    <rect width="1100px" height="30px" fill="#264653"/>
-                    <g font-size="15" font-family="sans-serif" fill="#e76f51" stroke="none">
-                      <text x="10" y="20" dx="0">HJEMMEKONTOR</text>
-                      <text x="515" y="20" dx="0">NØYTRAL</text>
-                      <text x="1000" y="20" dx="0">FYSISK</text>
-                    </g>
-            </svg>
-            <br>
-            <h4>Foretrekker du å fortelle bakgrunnshistorie eller gå rett på sak?</h4>
-            <svg xmlns="http://www.w3.org/2000/svg" height="75" width="1100" id="bgrp-svg" style='border: 1px solid black;'>
-              
-              <line x1="550" y1="30" x2="550" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                <line x1="50" y1="30" x2="50" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                  <line x1="1050" y1="30" x2="1050" y2="1000" style="stroke:rgb(42,157,144);stroke-width:2" />
-                    <rect width="1100px" height="30px" fill="#264653"/>
-                    <g font-size="15" font-family="sans-serif" fill="#e76f51" stroke="none">
-                      <text x="10" y="20" dx="0">BAKGRUNNSHISTORIE</text>
-                      <text x="515" y="20" dx="0">NØYTRAL</text>
-                      <text x="1000" y="20" dx="0">RETT PÅ SAK</text>
-                    </g>
-            </svg>
-          </div>
-      
-          <script>
-            //Funksjon for å plassere navn på SVG-demo. Trenger en tall-verdi (value), en farge (color) og element-id til SVG (svgID)
-            function drawSvgText(value, color, svgID, name) {
-                const svg = document.getElementById(svgID); //Setter SVG-element basert på svgID
-                const svgns = "http://www.w3.org/2000/svg"; //
-                let xVal = (parseInt(value) * 10) + 50; //Ganger verdien med 10 for å tegne inn i SVG-elementet som er 1000px bredt
-                //Sjekker om verdien er høyere eller lavere enn 500 for å få øke avstanden mellom punktene, samt sette den totale høyden på SVG-elementet
-                if (xVal < 500) {
-                    svgHeightLeft = svgHeightLeft + 50; //Legger til 35 px til venstre-side
-                    svgYvalue = svgHeightLeft; //Setter Y-verdi til den oppdaterte venstre-side verdien
-                } else {
-                    svgHeightRight = svgHeightRight + 50; //Legger til 35 px til høyre-side
-                    svgYvalue = svgHeightRight; //Setter Y-verdu til den oppdaterte høyre-side verdien
-                }
-                //Sjekker om verdien er 0 eller 1000. Legger til eller trekker fra 50px for å unngå at punktene kommer helt ut i kanten på SVG-elementet
-                //if(xVal == 0) { xVal = xVal + 50; } //Verdien er 0 og det legges til 50px
-                //if(xVal == 1000) { xVal = xVal - 50; } //Verdien er 1000, og det trekkes fra 50px
-                let txtName = document.createElementNS(svgns, 'text'); //Oppretter variabel for å vise navn som SVG
-                txtName.setAttributeNS(null, 'x', xVal); //Setter x-verdi for navn-objektet
-                txtName.setAttributeNS(null, 'y', svgYvalue); //Setter y-verdi for navn-objektet
-                txtName.setAttributeNS(null, 'class', 'svg-text svg-animation'); //Knytter css-klassen svg-text til navn-objektet
-                txtName.textContent = name; //Setter verdien på tekst-elementet, herunder variablenen "name"
-                let circle = document.createElementNS(svgns, "circle"); //Oppretter variabel for å vise en sirkel i SVG-elementet
-                circle.setAttributeNS(null, 'cx', xVal); //Setter x-verdi
-                circle.setAttributeNS(null, 'cy', svgYvalue); //Setter y-verdi
-                circle.setAttributeNS(null, 'r', 25); //Setter radius på sirkelen
-                circle.setAttributeNS(null, 'style', 'fill: ' + color); //Setter farge på sirkelen
-                circle.setAttributeNS(null, 'class', 'svg-animation svg-shadow');
-                let txtValue = document.createElementNS(svgns, 'text');
-                txtValue.setAttributeNS(null, 'x', xVal);
-                txtValue.setAttributeNS(null, 'y', svgYvalue + 15);
-                txtValue.setAttributeNS(null, 'class', 'svg-num svg-animation');
-                txtValue.textContent = value;
-                //Legger til sirkelen til svg-elementet
-                svg.appendChild(circle);
-                svg.appendChild(txtName);
-                svg.appendChild(txtValue);
-            }
-            svgYvalue = 0; //Totalhøyde på SVG-elementet
-            svgHeightLeft = 25; //Høyde på venstre-side i SVG-elementet
-            svgHeightRight = 25; //Høyde på høyre-side i SVG-elementet
-            //Legger alle URLene til filene inn i et array (urls)
-            let urls = [
-            ]
-             //Sjekker om noen har fylt ut profil-siden og det ligger data i local storage.
-            console.log(localStorage.bacitUrl)
-            if (localStorage.bacitUrl) {
-                console.log(localStorage.bacitUrl)
-                urls.push(localStorage.bacitUrl); //Legger til URL til urls array ved å bruke funksjonen push()
-            }
-            //Legger alle URLer i en promise.all funksjon
-            Promise.all(urls.map(url => fetch(url).then(response => response.json()))).then((data) => {
-                //Henter ut data for hver enkelt person i en egen variabel/array for å gjøre oversikten i koden bedre. Hadde det vært et dynamisk system så hadde ikke dette vært nødvendig/mulig
-                for (var url in urls) {
-                    drawSvgText(20, "#FFFFFF", "hours-svg", data[0].name);
-                    drawSvgText(20, "#FFFFFF", "akt-svg", data[0].trxid);
-                }
-                //Sjekker om det er lagret noe i local storage, og skriver eventuelt ut en melding til <p>-elementet med ID "localstorage-tekst" hvor fornavn og etternavn blir synlig.
-                if (localStorage.trxid) {
-                    document.getElementById("localstorage-tekst").innerHTML = "Takk for at du fylte ut din profil <b>" + data[8].fname + " " + data[8].lname + "</b>. Nedefor kan du se hvordan du passer inn i gruppen:";
-                }
-                
-                //Bruker funksjonen drawSvgText til å generere svg-elementene til hours-svg
-                //Sjekker hvilken side som er høyest, og bruker deretter den høyeste til å sette "height" på SVG-elementet hours-svg
-                if (svgHeightRight < svgHeightLeft) {
-                    svgYvalue = svgHeightLeft; //Venstre side er høyest
-                } else {
-                    svgYvalue = svgHeightRight; //Høyre side er høyest
-                }
-                //Endrer høyden på SVG-elementet
-                document.getElementById('hours-svg').setAttribute("height", svgYvalue + 140);
-                //Akt
-                svgYvalue = 0;
-                svgHeightLeft = 25;
-                svgHeightRight = 25;
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Navn: <span id="name3"></span><br> <!--skriver name og name verdi på nettsiden-->
+                        Like Jobbe I Grupper: <span id="LikeJobbeIGrupper3"></span><br>
+                        like Jobbe Om Morgen: <span id="likeJobbeOmMorgen3"></span><br>
+                        Fortell Problemet I Dypde: <span id="FortellProblemetIDypde3"></span><br>
+                        Snakke Om Problemet: <span id="SnakkeOmProblemet3"></span><br>
+                        Verbal Prosses Over Mental Prosses: <span id="VerbalProssesOverMentalProsses3"></span><br>
+                        Avbryt Mens Jeg Snakker: <span id="AvbrytMensJegSnakker3"></span><br>
+                        Video Chat Over Melding: <span id="VideoChatOverMelding3"></span><br>
+                        Fysisk Mote Over Digitalt Mote: <span id="FysiskMoteOverDigitaltMote3"></span><br>
+                        Mange Moter Over Fa Moter: <span id="MangeMoterOverFaMoter3"></span><br>
+                        Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv3"></span><br>
+                        Ananas Pa Pizza: <span id="AnanasPaPizza3"></span><br>
 
-                if (localStorage.trxid) {
-                    drawSvgText(data[8].akt, "#e36256", "akt-svg", data[8].fname);
-                }
-                if (svgHeightRight < svgHeightLeft) {
-                    svgYvalue = svgHeightLeft;
-                } else {
-                    svgYvalue = svgHeightRight;
-                }
-                document.getElementById('akt-svg').setAttribute("height", svgYvalue + 140);
-                //Work
-                svgYvalue = 0;
-                svgHeightLeft = 25;
-                svgHeightRight = 25;
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Navn: <span id="name4"></span><br> <!--skriver name og name verdi på nettsiden-->
+                        Like Jobbe I Grupper: <span id="LikeJobbeIGrupper4"></span><br>
+                        like Jobbe Om Morgen: <span id="likeJobbeOmMorgen4"></span><br>
+                        Fortell Problemet I Dypde: <span id="FortellProblemetIDypde4"></span><br>
+                        Snakke Om Problemet: <span id="SnakkeOmProblemet4"></span><br>
+                        Verbal Prosses Over Mental Prosses: <span id="VerbalProssesOverMentalProsses4"></span><br>
+                        Avbryt Mens Jeg Snakker: <span id="AvbrytMensJegSnakker4"></span><br>
+                        Video Chat Over Melding: <span id="VideoChatOverMelding4"></span><br>
+                        Fysisk Mote Over Digitalt Mote: <span id="FysiskMoteOverDigitaltMote4"></span><br>
+                        Mange Moter Over Fa Moter: <span id="MangeMoterOverFaMoter4"></span><br>
+                        Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv4"></span><br>
+                        Ananas Pa Pizza: <span id="AnanasPaPizza4"></span><br>
 
-                if (localStorage.trxid) {
-                    drawSvgText(data[8].work, "#e36256", "work-svg", data[8].fname);
-                }
-                if (svgHeightRight < svgHeightLeft) {
-                    svgYvalue = svgHeightLeft;
-                } else {
-                    svgYvalue = svgHeightRight;
-                }
-                document.getElementById('work-svg').setAttribute("height", svgYvalue + 40);
-                //Dify
-                svgYvalue = 0;
-                svgHeightLeft = 25;
-                svgHeightRight = 25;
+                    </p>
+                </div>
+                <div>
+                    <p>
+                        Navn: <span id="name5"></span><br> <!--skriver name og name verdi på nettsiden-->
+                        Like Jobbe I Grupper: <span id="LikeJobbeIGrupper5"></span><br>
+                        like Jobbe Om Morgen: <span id="likeJobbeOmMorgen5"></span><br>
+                        Fortell Problemet I Dypde: <span id="FortellProblemetIDypde5"></span><br>
+                        Snakke Om Problemet: <span id="SnakkeOmProblemet5"></span><br>
+                        Verbal Prosses Over Mental Prosses: <span id="VerbalProssesOverMentalProsses5"></span><br>
+                        Avbryt Mens Jeg Snakker: <span id="AvbrytMensJegSnakker5"></span><br>
+                        Video Chat Over Melding: <span id="VideoChatOverMelding5"></span><br>
+                        Fysisk Mote Over Digitalt Mote: <span id="FysiskMoteOverDigitaltMote5"></span><br>
+                        Mange Moter Over Fa Moter: <span id="MangeMoterOverFaMoter5"></span><br>
+                        Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv5"></span><br>
+                        Ananas Pa Pizza: <span id="AnanasPaPizza5"></span><br>
 
-                if (localStorage.trxid) {
-                    drawSvgText(data[8].dify, "#e36256", "dify-svg", data[8].fname);
-                }
-                if (svgHeightRight < svgHeightLeft) {
-                    svgYvalue = svgHeightLeft;
-                } else {
-                    svgYvalue = svgHeightRight;
-                }
-                document.getElementById('dify-svg').setAttribute("height", svgYvalue + 40);
-                //Bgrp
-                svgYvalue = 0;
-                svgHeightLeft = 25;
-                svgHeightRight = 25;
+                    </p>
+                </div>
+                <script>
+                    getBacitInfo1(); //navn på junksjon for å hente json data fra webserver bacit.info
+                    const bacitInfo_url1 = ('https://bacit.info/hwr/20221206082132-3ff9224389a1902978bd098e8b39780d.json'); //URL linken til webserver
+                    async function getBacitInfo1() {
+                        const response = await fetch(bacitInfo_url1);
+                        const data = await response.json();
+                        const { name, LikeJobbeIGrupper, likeJobbeOmMorgen, FortellProblemetIDypde, SnakkeOmProblemet, VerbalProssesOverMentalProsses, AvbrytMensJegSnakker, VideoChatOverMelding, FysiskMoteOverDigitaltMote, MangeMoterOverFaMoter, FastJobbTidOverBestemmeSelv, AnanasPaPizza} = data; // data som blir hetnet ut av JSON form
 
-                if (localStorage.trxid) {
-                    drawSvgText(data[8].bgrp, "#e36256", "bgrp-svg", data[8].fname);
-                }
-                if (svgHeightRight < svgHeightLeft) {
-                    svgYvalue = svgHeightLeft;
-                } else {
-                    svgYvalue = svgHeightRight;
-                }
-                document.getElementById('bgrp-svg').setAttribute("height", svgYvalue + 40);
-              });
-              // just an alert message for when users try to use the search bar
-              function OnlyAPlaceHolder() {
-                  alert("this item doesn't have much functionality yet and is only a placeholder")
-              }
-          </script>-->
+                        document.getElementById("name1").textContent = name; // henter HTML element med dens ID, og retunerer all dens etterkommere
+                        document.getElementById("LikeJobbeIGrupper1").textContent = LikeJobbeIGrupper;
+                        document.getElementById("likeJobbeOmMorgen1").textContent = likeJobbeOmMorgen;
+                        document.getElementById("FortellProblemetIDypde1").textContent = FortellProblemetIDypde;
+                        document.getElementById("SnakkeOmProblemet1").textContent = SnakkeOmProblemet;
+                        document.getElementById("VerbalProssesOverMentalProsses1").textContent = VerbalProssesOverMentalProsses;
+                        document.getElementById("AvbrytMensJegSnakker1").textContent = AvbrytMensJegSnakker;
+                        document.getElementById("VideoChatOverMelding1").textContent = VideoChatOverMelding;
+                        document.getElementById("FysiskMoteOverDigitaltMote1").textContent = FysiskMoteOverDigitaltMote;
+                        document.getElementById("MangeMoterOverFaMoter1").textContent = MangeMoterOverFaMoter;
+                        document.getElementById("FastJobbTidOverBestemmeSelv1").textContent = FastJobbTidOverBestemmeSelv;
+                        document.getElementById("AnanasPaPizza1").textContent = AnanasPaPizza;
+                    }
+
+                    getBacitInfo1();
+
+                    getBacitInfo2(); //navn på junksjon for å hente json data fra webserver bacit.info
+                    const bacitInfo_url2 = ('https://bacit.info/hwr/20221206081848-9ed0fa4a29473ce3d4d6f3debe5641fd.json'); //URL linken til webserver
+                    async function getBacitInfo2() {
+                        const response = await fetch(bacitInfo_url2);
+                        const data = await response.json();
+                        const { name, LikeJobbeIGrupper, likeJobbeOmMorgen, FortellProblemetIDypde, SnakkeOmProblemet, VerbalProssesOverMentalProsses, AvbrytMensJegSnakker, VideoChatOverMelding, FysiskMoteOverDigitaltMote, MangeMoterOverFaMoter, FastJobbTidOverBestemmeSelv, AnanasPaPizza} = data; // data som blir hetnet ut av JSON form
+
+                        document.getElementById("name2").textContent = name; // henter HTML element med dens ID, og retunerer all dens etterkommere
+                        document.getElementById("LikeJobbeIGrupper2").textContent = LikeJobbeIGrupper;
+                        document.getElementById("likeJobbeOmMorgen2").textContent = likeJobbeOmMorgen;
+                        document.getElementById("FortellProblemetIDypde2").textContent = FortellProblemetIDypde;
+                        document.getElementById("SnakkeOmProblemet2").textContent = SnakkeOmProblemet;
+                        document.getElementById("VerbalProssesOverMentalProsses2").textContent = VerbalProssesOverMentalProsses;
+                        document.getElementById("AvbrytMensJegSnakker2").textContent = AvbrytMensJegSnakker;
+                        document.getElementById("VideoChatOverMelding2").textContent = VideoChatOverMelding;
+                        document.getElementById("FysiskMoteOverDigitaltMote2").textContent = FysiskMoteOverDigitaltMote;
+                        document.getElementById("MangeMoterOverFaMoter2").textContent = MangeMoterOverFaMoter;
+                        document.getElementById("FastJobbTidOverBestemmeSelv2").textContent = FastJobbTidOverBestemmeSelv;
+                        document.getElementById("AnanasPaPizza2").textContent = AnanasPaPizza;
+                    }
+
+                    getBacitInfo2();
+
+                    getBacitInfo3(); //navn på junksjon for å hente json data fra webserver bacit.info
+                    const bacitInfo_url3 = ('https://bacit.info/hwr/20221206082143-afc4e8a55955834fa226eaef2b934104.json'); //URL linken til webserver
+                    async function getBacitInfo3() {
+                        const response = await fetch(bacitInfo_url3);
+                        const data = await response.json();
+                        const { name, LikeJobbeIGrupper, likeJobbeOmMorgen, FortellProblemetIDypde, SnakkeOmProblemet, VerbalProssesOverMentalProsses, AvbrytMensJegSnakker, VideoChatOverMelding, FysiskMoteOverDigitaltMote, MangeMoterOverFaMoter, FastJobbTidOverBestemmeSelv, AnanasPaPizza} = data; // data som blir hetnet ut av JSON form
+
+                        document.getElementById("name3").textContent = name; // henter HTML element med dens ID, og retunerer all dens etterkommere
+                        document.getElementById("LikeJobbeIGrupper3").textContent = LikeJobbeIGrupper;
+                        document.getElementById("likeJobbeOmMorgen3").textContent = likeJobbeOmMorgen;
+                        document.getElementById("FortellProblemetIDypde3").textContent = FortellProblemetIDypde;
+                        document.getElementById("SnakkeOmProblemet3").textContent = SnakkeOmProblemet;
+                        document.getElementById("VerbalProssesOverMentalProsses3").textContent = VerbalProssesOverMentalProsses;
+                        document.getElementById("AvbrytMensJegSnakker3").textContent = AvbrytMensJegSnakker;
+                        document.getElementById("VideoChatOverMelding3").textContent = VideoChatOverMelding;
+                        document.getElementById("FysiskMoteOverDigitaltMote3").textContent = FysiskMoteOverDigitaltMote;
+                        document.getElementById("MangeMoterOverFaMoter3").textContent = MangeMoterOverFaMoter;
+                        document.getElementById("FastJobbTidOverBestemmeSelv3").textContent = FastJobbTidOverBestemmeSelv;
+                        document.getElementById("AnanasPaPizza3").textContent = AnanasPaPizza;
+                    }
+
+                    getBacitInfo3();
+
+                    getBacitInfo4(); //navn på junksjon for å hente json data fra webserver bacit.info
+                    const bacitInfo_url4 = ('https://bacit.info/hwr/20221206082402-f4181ddc0cc3975f42016440f96b5fcb.json'); //URL linken til webserver
+                    async function getBacitInfo4() {
+                        const response = await fetch(bacitInfo_url4);
+                        const data = await response.json();
+                        const { name, LikeJobbeIGrupper, likeJobbeOmMorgen, FortellProblemetIDypde, SnakkeOmProblemet, VerbalProssesOverMentalProsses, AvbrytMensJegSnakker, VideoChatOverMelding, FysiskMoteOverDigitaltMote, MangeMoterOverFaMoter, FastJobbTidOverBestemmeSelv, AnanasPaPizza} = data; // data som blir hetnet ut av JSON form
+
+                        document.getElementById("name4").textContent = name; // henter HTML element med dens ID, og retunerer all dens etterkommere
+                        document.getElementById("LikeJobbeIGrupper4").textContent = LikeJobbeIGrupper;
+                        document.getElementById("likeJobbeOmMorgen4").textContent = likeJobbeOmMorgen;
+                        document.getElementById("FortellProblemetIDypde4").textContent = FortellProblemetIDypde;
+                        document.getElementById("SnakkeOmProblemet4").textContent = SnakkeOmProblemet;
+                        document.getElementById("VerbalProssesOverMentalProsses4").textContent = VerbalProssesOverMentalProsses;
+                        document.getElementById("AvbrytMensJegSnakker4").textContent = AvbrytMensJegSnakker;
+                        document.getElementById("VideoChatOverMelding4").textContent = VideoChatOverMelding;
+                        document.getElementById("FysiskMoteOverDigitaltMote4").textContent = FysiskMoteOverDigitaltMote;
+                        document.getElementById("MangeMoterOverFaMoter4").textContent = MangeMoterOverFaMoter;
+                        document.getElementById("FastJobbTidOverBestemmeSelv4").textContent = FastJobbTidOverBestemmeSelv;
+                        document.getElementById("AnanasPaPizza4").textContent = AnanasPaPizza;
+                    }
+
+                    getBacitInfo4();
+
+                    getBacitInfo5(); //navn på junksjon for å hente json data fra webserver bacit.info
+                    const bacitInfo_url5 = ('https://bacit.info/hwr/20221208153735-0c5d8cce839e095b84648c3f39f59a3f.json'); //URL linken til webserver
+                    async function getBacitInfo5() {
+                        const response = await fetch(bacitInfo_url5);
+                        const data = await response.json();
+                        const { name, LikeJobbeIGrupper, likeJobbeOmMorgen, FortellProblemetIDypde, SnakkeOmProblemet, VerbalProssesOverMentalProsses, AvbrytMensJegSnakker, VideoChatOverMelding, FysiskMoteOverDigitaltMote, MangeMoterOverFaMoter, FastJobbTidOverBestemmeSelv, AnanasPaPizza} = data; // data som blir hetnet ut av JSON form
+
+                        document.getElementById("name5").textContent = name; // henter HTML element med dens ID, og retunerer all dens etterkommere
+                        document.getElementById("LikeJobbeIGrupper5").textContent = LikeJobbeIGrupper;
+                        document.getElementById("likeJobbeOmMorgen5").textContent = likeJobbeOmMorgen;
+                        document.getElementById("FortellProblemetIDypde5").textContent = FortellProblemetIDypde;
+                        document.getElementById("SnakkeOmProblemet5").textContent = SnakkeOmProblemet;
+                        document.getElementById("VerbalProssesOverMentalProsses5").textContent = VerbalProssesOverMentalProsses;
+                        document.getElementById("AvbrytMensJegSnakker5").textContent = AvbrytMensJegSnakker;
+                        document.getElementById("VideoChatOverMelding5").textContent = VideoChatOverMelding;
+                        document.getElementById("FysiskMoteOverDigitaltMote5").textContent = FysiskMoteOverDigitaltMote;
+                        document.getElementById("MangeMoterOverFaMoter5").textContent = MangeMoterOverFaMoter;
+                        document.getElementById("FastJobbTidOverBestemmeSelv5").textContent = FastJobbTidOverBestemmeSelv;
+                        document.getElementById("AnanasPaPizza5").textContent = AnanasPaPizza;
+                    }
+
+                    getBacitInfo5();
+                </script>
+            </div>
+        </form>
     </body>
 </html>
