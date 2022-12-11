@@ -18,24 +18,20 @@
                     <li><a href="index.html">Forside</a></li>
                     <li><a href="personlighetstest.html">Personlighettest</a></li>
                     <li><a href="rapport.html">Rapport</a></li>
-                    <li><a href="rapp.html">Resultat</a></li>
+                    <li><a href="Resultat.html">Resultat</a></li>
                 </ul>
 			</div>
 		</nav>
         <div id="content">
             <form id="formWrapper">
-               <div class="main-content">
-                    <h1>How-we-roll rapport</h1>
+                    <h2>How-we-roll rapport</h2>
                     <p>Her er en visuell fremstilling av dine resultater fra personlighetstesten.
-                        Vi har brukt Canvas for å visuelt vise hvordan resultatsiden ville sett ut, hvis vi hadde fått til å gjøre den dynamisk.
+                        Vi har brukt Canvas for å visuelt vise hvordan resultatsiden ville sett ut hvis vi hadde fått til å gjøre den dynamisk.
                         Vi har brukt Viktor sine resultater som utgangspunk for denne demonstrasjonen</p>
-
+                <div>
+                    <canvas id="dineResultater" width="1000" height="580" style="border:1px solid #000000; margin-left: 20px">></canvas>
                 </div>
-                    <div>
-                        <canvas id="dineResultater" width="1000" height="580" style="border:1px solid #000000; margin-left: 20px">></canvas>
-                    </div>
                 <script>
-                    //Morgenfugl eller nattugle
                     var canvas = document.getElementById("dineResultater"); // Cavnvas ID
                     var ctx = canvas.getContext("2d"); // Sier at canvas skal være 2d
 
@@ -57,9 +53,7 @@
                     ctx.fillStyle = "green" //farge på sirkel
                     ctx.fill(); //fyller fargen på sirkel
                     ctx.stroke(); //linje rundt sirkel
-                </script>
 
-                <script>
                     // jobbe alene eller i gruppe
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -75,9 +69,7 @@
                     ctx.fillStyle = "green" //farge på sirkel
                     ctx.fill(); //fyller fargen på sirkel
                     ctx.stroke(); //linje rundt sirkel
-                </script>
 
-                <script>
                     //gå i dybe eller rett på sak
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -93,9 +85,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //diskuter problem eller gå rett på sak
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -111,9 +101,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //verbalsk prosess eller mental prosess
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -129,9 +117,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //avbryt mens jeg snakker
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -147,9 +133,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //video chat eller melding
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -165,9 +149,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //Fysisk møte eller digitalt møte
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -183,9 +165,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //mange møter eller få møter
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -201,9 +181,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     //fast jobb tid eller bestemme selv
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -219,9 +197,7 @@
                     ctx.fillStyle = "green";
                     ctx.fill();
                     ctx.stroke();
-                </script>
 
-                <script>
                     // annanas på pizza eller en krigsforbryter
                     ctx.font = "20px Arial";
                     ctx.fillStyle ="black";
@@ -321,7 +297,7 @@
                         Fast Jobb Tid Over Bestemme Selv: <span id="FastJobbTidOverBestemmeSelv5"></span><br>
                         Ananas Pa Pizza: <span id="AnanasPaPizza5"></span><br>
 
-                    </p>
+                   </p>
                 </div>
                 <script>
                     getBacitInfo1(); //navn på junksjon for å hente json data fra webserver bacit.info
@@ -439,7 +415,7 @@
 
                     getBacitInfo5();
                 </script>
-            </div>
-        </form>
+            </form>
+        </div>
     </body>
 </html>
