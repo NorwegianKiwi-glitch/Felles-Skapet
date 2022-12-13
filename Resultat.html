@@ -25,7 +25,7 @@
                     <input type = "button" id = "output-knapp" value = "Visualiser">
 
                 <div>
-                 <canvas id="Resultat"width="1200"height="580"
+                 <canvas id="Resultat"width="1200"height="600"
                     style="border:1px solid #000000; margin-left: 20px"></canvas>
                 </div>
                 <script>
@@ -37,17 +37,31 @@
 
                     var farger = ["green", "purple", "blue", "red", "orange", "pink", "beige", "lightblue"];
 
-                    outputKnapp.onclick = function () {
-                        var farge = farger[Math.floor(Math.random() * farger.length)];
-                        fetch("https://bacit.info/hwr/" + outputId.value + ".json", {cache: 'no-cache'})
+                    outputKnapp.onclick = function () {hentData(outputId.value);}
+
+            function hentData (svarId) {
+                var farge = farger[Math.floor(Math.random() * farger.length)];
+                        fetch("https://bacit.info/hwr/" + svarId + ".json", {cache: 'no-cache'})
                         .then(response => response.json())
                         .then(data => {
-                    console.log(JSON.stringify(data, null, 11));
+                            console.log(JSON.stringify(data, null, 11));
 
-                    drawCircles(data.AnanasPaPizza, 545, farge);      
-                    drawCircles(data.LikeJobbeIGrupper, 545, farge);                
-                });
+                            drawCircles(data.LikeJobbeIGrupper, 45, farge);   
+                            drawCircles(data.likeJobbeOmMorgen, 95, farge);   
+                            drawCircles(data.FortellProblemetIDypde, 145, farge);   
+                            drawCircles(data.SnakkeOmProblemet, 195, farge);   
+                            drawCircles(data.VerbalProssesOverMentalProsses, 245, farge);   
+                            drawCircles(data.AvbrytMensJegSnakker, 295, farge);   
+                            drawCircles(data.VideoChatOverMelding, 345, farge);   
+                            drawCircles(data.FysiskMoteOverDigitaltMote, 395, farge);  
+                            drawCircles(data.MangeMoterOverFaMoter, 445, farge);   
+                            drawCircles(data.FastJobbTidOverBestemmeSelv, 495, farge);   
+                            drawCircles(data.AnanasPaPizza, 545, farge);      
+                    });
             }
+
+            // SOfia sin id
+            hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28");
 
             function drawCircles (data, y, color) {
                 ctx.beginPath();
@@ -58,567 +72,65 @@
                 ctx.strokeStyle = "black";
                 ctx.stroke();
                 ctx.closePath();
-            }                
-               
-                /* ctx.font = "15px Arial"; //font for Nøytral i toppen av Canvaset
+            }         
+            
+            function drawLines (y) {
+                ctx.beginPath();
+                ctx.moveTo(180, y);
+                ctx.lineTo(180 + (100 * 6), y); 
+                ctx.stroke();
+            }
+             for (let i = 0; i < 11; i++) {
+                drawLines(45 + (i * 50));
+             }
+             
+
+                    ctx.font = "15px Arial"; //font for Nøytral i toppen av Canvaset
                     ctx.fillText("Nøytral",475,20) //plassering av tekst
                     ctx.stroke();
 
+                     // jobbe alene eller i gruppe
+                
+                     ctx.fillText("Jobbe alene", 20, 50);
+                    ctx.fillText("Jobbe sammen", 800, 50);
+
                     //Linje for resultat av  spørsmål Liker du å jobbe om morgen
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Morgenfugl", 20, 50);
-                    ctx.fillText("Nattugle", 850, 50);
-
-                    ctx.moveTo(180, 45); //Linje start
-                    ctx.lineTo(830,45); //Linje slutt
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(500, 45, 10, 0, 2 * Math.PI); // grønn sirkel for å presentere bruker
-                    ctx.fillStyle = "green" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(705, 45, 10, 0, 2 * Math.PI); // blå sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(670, 45, 10, 0, 2 * Math.PI); // rød sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 45, 10, 0, 2 * Math.PI); // gul sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(282, 45, 10, 0, 2 * Math.PI); // rosa sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(260, 45, 10, 0, 2 * Math.PI); // brun sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    // jobbe alene eller i gruppe
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Jobbe alene", 20, 100);
-                    ctx.fillText("Jobbe sammen", 850, 100);
-
-                    ctx.moveTo(180, 95); //Linje start
-                    ctx.lineTo(830,95); //Linje slutt
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(620, 95, 10, 0, 2 * Math.PI); // grønn sirkel for å presentere bruker
-                    ctx.fillStyle = "green" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(423, 95, 10, 0, 2 * Math.PI); // blå sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(700, 95, 10, 0, 2 * Math.PI); // rød sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 95, 10, 0, 2 * Math.PI); // gul sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(800, 95, 10, 0, 2 * Math.PI); // rosa sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(564, 95, 10, 0, 2 * Math.PI); // brun sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
+                    ctx.font = "14px Arial";
+                    ctx.fillText("Morgenfugl", 20, 100);
+                    ctx.fillText("Nattugle", 800, 100);
 
                     //gå i dybe eller rett på sak
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Gå i dybe", 20, 150);
-                    ctx.fillText("Rett på sak", 850, 150);
+               
+                    ctx.fillText("Gå i dybden", 20, 150);
+                    ctx.fillText("Rett på sak", 800, 150);
 
-                    ctx.moveTo(180, 145);
-                    ctx.lineTo(830,145);
-                    ctx.stroke();
+                    ctx.fillText("Trenger å snakke om det", 20, 200);
+                    ctx.fillText("Trenger å gå videre", 800, 200);
 
-                    ctx.beginPath();
-                    ctx.arc(500, 145, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
+                    ctx.fillText("Verbal prossesor", 20, 250);
+                    ctx.fillText("Mental prossesor", 800, 250);
 
-                    ctx.beginPath();
-                    ctx.arc(423, 145, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
+                    ctx.fillText("Avtal med meg", 20, 300);
+                    ctx.fillText("Bare si ifra når du trenger meg", 800, 300);
 
-                    ctx.beginPath();
-                    ctx.arc(170, 145, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
+                    ctx.fillText("Video chat", 20, 350);
+                    ctx.fillText("Teksting", 800, 350);
 
-                    ctx.beginPath();
-                    ctx.arc(705, 145, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 145, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(282, 145, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //diskuter problem eller gå rett på sak
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Diskutere problem", 20, 200);
-                    ctx.fillText("Gå videre", 850, 200);
-
-                    ctx.moveTo(180, 195);
-                    ctx.lineTo(830,195);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(500, 195, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(564, 195, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(700, 195, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 195, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(282, 195, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(800, 195, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //verbalsk prosess eller mental prosess
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Snakke", 20, 250);
-                    ctx.fillText("Tenke", 850, 250);
-                    ctx.moveTo(180, 245)
-                    ctx.lineTo(830,245);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(170, 245, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";// fargen på sirkel
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(282, 245, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 245, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(564, 245, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 245, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(705, 245, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //avbryt mens jeg snakker
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("La meg snakke", 20, 300);
-                    ctx.fillText("Avbryt meg", 850, 300);
-
-                    ctx.moveTo(180, 295);
-                    ctx.lineTo(830,295);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(300, 295, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(282, 295, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 295, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(170, 295, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(260, 295, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(185, 295, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //video chat eller melding
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Chat", 20, 350);
-                    ctx.fillText("Melding", 850, 350);
-
-                    ctx.moveTo(180, 345);
-                    ctx.lineTo(830,345);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(380, 345, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(705, 345, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 345, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 345, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(720, 345, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(690, 345, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //Fysisk møte eller digitalt møte
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Digitalt møte", 20, 400);
-                    ctx.fillText("Fysisk møte", 850, 400);
-
-                    ctx.moveTo(180, 395);
-                    ctx.lineTo(830,395);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(700, 395, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-                    ctx.beginPath();
-                    ctx.arc(564, 395, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 395, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 395, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(282, 395, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(800, 395, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //mange møter eller få møter
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
+                    ctx.fillText("Fysisk møte", 20, 400);
+                    ctx.fillText("Digital møte", 800, 400);
 
                     ctx.fillText("Mange møter", 20, 450);
-                    ctx.fillText("Få møter", 850, 450);
+                    ctx.fillText("Få møter", 800, 450);
 
-                    ctx.moveTo(180, 445);
-                    ctx.lineTo(830,445);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(380, 445, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(705, 445, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 445, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 445, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(170, 445, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(564, 445, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //fast jobb tid eller bestemme selv
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-                    ctx.fillText("Fast jobb tid", 20, 500);
-                    ctx.fillText("Jobb når du vil", 850, 500);
-
-                    ctx.moveTo(180, 495);
-                    ctx.lineTo(830,495);
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(620, 495, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(282, 495, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 495, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(267, 495, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(170, 495, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(705, 495, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
+                    ctx.fillText("09-17", 20, 500);
+                    ctx.fillText("Jeg har ikke noe timeplan", 800, 500);
 
                     // annanas på pizza eller en krigsforbryter
-                    ctx.font = "20px Arial";
-                    ctx.fillStyle ="black";
-*/
+                 
                     ctx.fillText("Annanas på pizza", 20, 550);
-                    ctx.fillText("Send til graven", 850, 550);
+                    ctx.fillText("Send til graven", 800, 550);
 
-                    ctx.moveTo(180, 545);
-                    ctx.lineTo(180 + (100 * 6),545);
-                    ctx.stroke();
-/*
-                    ctx.beginPath();
-                    ctx.arc(700, 545, 10, 0, 2 * Math.PI);
-                    ctx.fillStyle = "green";
-                    ctx.fill();
-                    ctx.stroke();
-
-                    ctx.beginPath();
-                    ctx.arc(564, 545, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "blue" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(457, 545, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(580, 545, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "yellow" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(815, 545, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    ctx.beginPath();
-                    ctx.arc(800, 545, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown" //farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-
-                    //Kollone med navn på siden
-                    ctx.beginPath();
-                    ctx.arc(1050, 100, 10, 0, 2 * Math.PI); // grønn sirkel for å presentere bruker (Viktor)
-                    ctx.fillStyle = "green"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Viktor", 1065, 110);
-
-                    ctx.beginPath();
-                    ctx.arc(1050, 140, 10, 0, 2 * Math.PI); // blå sirkel for å presentere bruker på siden
-                    ctx.fillStyle = "blue"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Alfa", 1065, 150);
-
-                    ctx.beginPath();
-                    ctx.arc(1050, 180, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "red"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Bravo", 1065, 190);
-
-                    ctx.beginPath();
-                    ctx.arc(1050, 220, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "Yellow"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Charlie", 1065, 230);
-
-                    ctx.beginPath();
-                    ctx.arc(1050, 260, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "pink"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Delta", 1065, 270);
-
-                    ctx.beginPath();
-                    ctx.arc(1050, 300, 10, 0, 2 * Math.PI); // Sirkel for å presentere bruker
-                    ctx.fillStyle = "brown"//farge på sirkel
-                    ctx.fill(); //fyller fargen på sirkel
-                    ctx.stroke(); //linje rundt sirkel
-                    ctx.font = "20px Arial";
-                    ctx.fillText("Echo", 1065, 310); */
-
-
+                    
 
 
                 </script>
