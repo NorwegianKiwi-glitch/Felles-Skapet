@@ -244,23 +244,22 @@
 					<div>
 						<h4>Ananas på  pizza burde være en krigsforbrytelse og straffes med hentretelse på stedet </h4>
 
-						<input type="radio" id="AnanasPaPizza1" name="AnanasPaPizza" value="veldig uenig">
+						<input type="radio" id="AnanasPaPizza1" name="AnanasPaPizza" value="0">
 						<label for="AnanasPaPizza1">Veldig uenig</label>
 
-						<input type="radio" id="AnanasPaPizza2" name="AnanasPaPizza" value="litt uenig">
-						<label for="AnanasPaPizza2">Litt uenig</label>
+						<input type="radio" id="AnanasPaPizza2" name="AnanasPaPizza" value="25">
+						<label for="AnanasPaPizza2">Uenig</label>
 
-						<input type="radio" id="AnanasPaPizza3" name="AnanasPaPizza" value="enig">
-						<label for="AnanasPaPizza3">Enig</label>
+						<input type="radio" id="AnanasPaPizza6" name="AnanasPaPizza" value="50" required>
+						<label for="AnanasPaPizza6">Nøytral</label>
 
-						<input type="radio" id="AnanasPaPizza4" name="AnanasPaPizza" value="litt enig">
-						<label for="AnanasPaPizza4">Litt enig</label>
+						<input type="radio" id="AnanasPaPizza4" name="AnanasPaPizza" value="75">
+						<label for="AnanasPaPizza4">Enig</label>
 
-						<input type="radio" id="AnanasPaPizza5" name="AnanasPaPizza" value="veldig enig">
+						<input type="radio" id="AnanasPaPizza5" name="AnanasPaPizza" value="100">
 						<label for="AnanasPaPizza5">Veldig enig</label>
 
-						<input type="radio" id="AnanasPaPizza6" name="AnanasPaPizza" value="nøytral" required>
-						<label for="AnanasPaPizza6">Nøytral</label>
+						
 					</div>
 				</fieldset>
 				<div>
@@ -303,6 +302,7 @@
 				let timestamp = data.time;
 				let trxid = data.trxid;
 				let bacitUrl = ("https://bacit.info/hwr/" + timestamp + "-" + trxid + ".json");
+
 
 				results.innerText = ("JSON has been submitted to " + bacitUrl); // JSON.stringify(data, null, 2)
 
