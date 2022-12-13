@@ -63,9 +63,15 @@
             // SOfia sin id
             hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28");
 
+            var offset;
+
             function drawCircles (data, y, color) {
+                if (data == 0) {offset = Math.floor(Math.random() * 80);}
+                else if (data == 100) {offset = Math.floor(Math.random() * (-80));}
+                else {offset = Math.floor(Math.random() * (40 - (-40)) + (-40));} 
+
                 ctx.beginPath();
-                ctx.arc((180 + parseInt(data, 10)* 6) , y, 4, 0, 2 * Math.PI, false);
+                ctx.arc((180 + parseInt(data, 10)* 6) + offset , y, 4, 0, 2 * Math.PI, false);
                 ctx.fillStyle = color;
                 ctx.fill();
                 ctx.lineWidth = 1;
