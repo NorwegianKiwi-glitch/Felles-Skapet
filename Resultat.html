@@ -36,32 +36,53 @@
                     var outputKnapp = document.getElementById("output-knapp");
 
                     var farger = ["green", "purple", "blue", "red", "orange", "pink", "beige", "lightblue"];
+                    var antallNavn = 0;
 
-                    outputKnapp.onclick = function () {hentData(outputId.value);}
+                    outputKnapp.onclick = function () {hentData(outputId.value, farger[Math.floor(Math.random() * farger.length)]);}
 
-            function hentData (svarId) {
-                var farge = farger[Math.floor(Math.random() * farger.length)];
+            function hentData (svarId, navnFarge) {
                         fetch("https://bacit.info/hwr/" + svarId + ".json", {cache: 'no-cache'})
                         .then(response => response.json())
                         .then(data => {
                             console.log(JSON.stringify(data, null, 11));
 
-                            drawCircles(data.LikeJobbeIGrupper, 45, farge);   
-                            drawCircles(data.likeJobbeOmMorgen, 95, farge);   
-                            drawCircles(data.FortellProblemetIDypde, 145, farge);   
-                            drawCircles(data.SnakkeOmProblemet, 195, farge);   
-                            drawCircles(data.VerbalProssesOverMentalProsses, 245, farge);   
-                            drawCircles(data.AvbrytMensJegSnakker, 295, farge);   
-                            drawCircles(data.VideoChatOverMelding, 345, farge);   
-                            drawCircles(data.FysiskMoteOverDigitaltMote, 395, farge);  
-                            drawCircles(data.MangeMoterOverFaMoter, 445, farge);   
-                            drawCircles(data.FastJobbTidOverBestemmeSelv, 495, farge);   
-                            drawCircles(data.AnanasPaPizza, 545, farge);      
+                            drawCircles(data.LikeJobbeIGrupper, 45, navnFarge);   
+                            drawCircles(data.likeJobbeOmMorgen, 95, navnFarge);   
+                            drawCircles(data.FortellProblemetIDypde, 145, navnFarge);   
+                            drawCircles(data.SnakkeOmProblemet, 195, navnFarge);   
+                            drawCircles(data.VerbalProssesOverMentalProsses, 245, navnFarge);   
+                            drawCircles(data.AvbrytMensJegSnakker, 295, navnFarge);   
+                            drawCircles(data.VideoChatOverMelding, 345, navnFarge);   
+                            drawCircles(data.FysiskMoteOverDigitaltMote, 395, navnFarge);  
+                            drawCircles(data.MangeMoterOverFaMoter, 445, navnFarge);   
+                            drawCircles(data.FastJobbTidOverBestemmeSelv, 495, navnFarge);   
+                            drawCircles(data.AnanasPaPizza, 545, navnFarge);   
+
+                            navn(data.name, 50 + (antallNavn * 40), navnFarge);
+                            antallNavn++;                   
                     });
             }
 
+            function navn(name, y, color) {
+                ctx.fillStyle = "black";
+                ctx.fillText(name, 1065, y);
+                ctx.beginPath();
+                ctx.arc(1050, y-5, 4, 0, 2 * Math.PI, false);
+                ctx.fillStyle = color;
+                ctx.fill();
+                ctx.lineWidth = 1;
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+                ctx.closePath();
+            }
+
             // SOfia sin id
+            hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28", "lightgreen");
+
+           hentData("20221213192919-c938d01154123f8fd81cbdb8ff8d9d18", "red");
+           /* hentData("20221206081848-9ed0fa4a29473ce3d4d6f3debe5641fd");
             hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28");
+            hentData("20221206082402-f4181ddc0cc3975f42016440f96b5fcb");*/
 
             var offset;
 
