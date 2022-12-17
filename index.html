@@ -24,7 +24,22 @@
 			</div>
 		</nav>
 		<div id="content">
-			<h1>Velkommen til 1Asin How-We-Roll oppgave</h1>
+			<form id="formWrapper">
+				<div>
+					<h1>Velkommen til 1Asin How-We-Roll oppgave</h1>
+				</div>
+				<div style="text-align: justify;">
+					<!--kode hentet fra: https://stackoverflow.com/a/60363693/199253 27-->
+					<!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+					<script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script>
+
+					<!-- Load the element definition -->
+					<script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script>
+
+					<!-- Simply set the `src` attribute to your MD file and win -->
+					<zero-md src="README.md"></zero-md>
+				</div>
+			</form>
 		</div>
 	</body>
 </html>

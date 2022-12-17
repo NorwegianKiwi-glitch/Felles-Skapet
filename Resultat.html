@@ -18,8 +18,9 @@
 		</nav>
         <div id="content">
             <form id="formWrapper">
-                    <h2>How-we-roll rapport</h2>
-                    <p>Her kan du se din resultate i forhold til andre studenter på samme gruppe. </p>
+                    <h2>Resultat</h2>
+                    <p>Her kan du se dine resultater i forhold til andre studenter på samme gruppe. <br>
+                    Legg inn time + trxid i Input feltet for å sammenligne dine resultater med resten av gruppen</p>
 
                     <input type = "text" value = "" id = "output-id" style = "width: 350px">
                     <input type = "button" id = "output-knapp" value = "Visualiser">
@@ -76,11 +77,15 @@
                 ctx.closePath();
             }
 
-            // SOfia sin id
+            // Bruker sin id
+            hentData("document.cookie", "cyan");
+            
+            // Sofia sin id
             hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28", "lightgreen");
 
-           hentData("20221213192919-c938d01154123f8fd81cbdb8ff8d9d18", "red");
-           /* hentData("20221206081848-9ed0fa4a29473ce3d4d6f3debe5641fd");
+            // Simon sin id
+            hentData("20221215113219-93457b5c100ddfaf81860c8c445a877c", "red");
+           /* hentData("20221215113219-93457b5c100ddfaf81860c8c445a877c");
             hentData("20221213175452-c3d1f8119ea08674223833dd63e99b28");
             hentData("20221206082402-f4181ddc0cc3975f42016440f96b5fcb");*/
 
