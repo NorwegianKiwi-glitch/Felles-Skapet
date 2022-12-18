@@ -42,7 +42,8 @@
                     outputKnapp.onclick = function () {hentData(outputId.value, farger[Math.floor(Math.random() * farger.length)]);}
 
             function hentData (svarId, navnFarge) {
-                        fetch(document.cookie)
+                        fetch("https://bacit.info/hwr/" + svarId + ".json", {cache: 'no-cache'})
+                        // fetch(document.cookie) // Funksjon for at cookie skal hente JSON URL
                         .then(response => response.json())
                         .then(data => {
                             console.log(JSON.stringify(data, null, 11));
@@ -78,7 +79,7 @@
             }
 
             // Bruker sin id
-            hentData("document.cookie", "cyan"); // Henter JSON URL med data som er lagret i cookien fra personlighetstesten
+            // hentData("document.cookie", "cyan"); // Henter JSON URL med data som er lagret i cookien fra personlighetstesten
 
             var offset;
 
