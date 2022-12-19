@@ -250,6 +250,7 @@
 			</form>
 			<div class="results">
 				<h2>Dine data</h2>
+				<h3>Kopier koden, og lim inn på <a href="rapport.html">neste side</a></h3>
 				<pre></pre>
 			</div>
 		</div>
@@ -286,10 +287,10 @@
 			.then(data => {
 				let timestamp = data.time;
 				let trxid = data.trxid;
-				let bacitUrl = ("https://bacit.info/hwr/" + timestamp + "-" + trxid + ".json");
+				let bacitUrl = ("" + timestamp + "-" + trxid + "");
 
 				// document.cookie = bacitUrl //lagrer JSON URl i en cookie
-				results.innerText = ("JSON has been submitted to " + bacitUrl); // JSON.stringify(data, null, 2)
+				results.innerText = ("Dette er koden din: " + bacitUrl); // JSON.stringify(data, null, 2)
 
 				console.log(bacitUrl);
 				localStorage.bacitUrl = bacitUrl;

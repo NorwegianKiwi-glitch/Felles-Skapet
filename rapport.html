@@ -18,9 +18,9 @@
 		</nav>
         <div id="content">
             <form id="formWrapper">
-                    <h2>Rapport</h2>
+                    <h2>Dine resultater</h2>
                     <p>Her kan du se dine resultater. <br>
-                    Legg inn time + trxid i Input feltet for å sammenligne med andre personer</p>
+                    Lim inn koden din!</p>
 
                     <input type = "text" value = "" id = "output-id" style = "width: 350px">
                     <input type = "button" id = "output-knapp" value = "Visualiser">
@@ -29,6 +29,10 @@
                  <canvas id="Resultat"width="1200"height="600"
                     style="border:1px solid #000000; margin-left: 20px"></canvas>
                 </div>
+
+                <h2>Har du lyst til å sammenligne resultatene dine med kollegaene dine?</h2>
+				<h3>Behold koden din, og lim inn på <a href="Resultat.html">neste side</a></h3>
+
                 <script>
                     var canvas = document.getElementById("Resultat"); // Cavnvas ID
                     var ctx = canvas.getContext("2d"); // Sier at canvas skal være 2d
