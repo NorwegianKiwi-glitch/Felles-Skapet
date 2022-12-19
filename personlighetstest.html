@@ -277,27 +277,27 @@
 			return response.json(); // parses JSON response into native JavaScriptobjects
 		}
 
-		function handleSubmit(event) {
+		function handleSubmit(event) { // funksjonen henter data data fra JSON skjemaet, og presenterer en personlig kode når man trykker på submit-knappen ("Send inn")
 			event.preventDefault();
-			const data = new FormData(event.target);
-			const formJSON = Object.fromEntries(data.entries());
-			const results = document.querySelector('.results pre');
+			const data = new FormData(event.target); // lager en verdi som kan bli hentet av en fetch-metode 
+			const formJSON = Object.fromEntries(data.entries());// lager en liste av dataen som blir fylt inn 
+			const results = document.querySelector('.results pre'); //Velger "div class = results"
 
-			postData('https://bacit.info/', formJSON)
+			postData('https://bacit.info/', formJSON) 
 			.then(data => {
-				let timestamp = data.time;
-				let trxid = data.trxid;
-				let bacitUrl = ("" + timestamp + "-" + trxid + "");
+				let timestamp = data.time; // henter tidstempel fra JSON-skjemaet
+				let trxid = data.trxid; // henter id-en til dataen man putter inn
+				let bacitUrl = ("" + timestamp + "-" + trxid + ""); //lager personlig kode
 
 				// document.cookie = bacitUrl //lagrer JSON URl i en cookie
-				results.innerText = ("Dette er koden din: " + bacitUrl); // JSON.stringify(data, null, 2)
+				results.innerText = ("Dette er koden din: " + bacitUrl); // Legger til vår beskjed og viser din personlige kode
 
 				console.log(bacitUrl);
-				localStorage.bacitUrl = bacitUrl;
+				localStorage.bacitUrl = bacitUrl; // lar deg lagre verdier i nettleseren 
 			});
 		}
 
-		const form = document.querySelector('form');
-		form.addEventListener('submit', handleSubmit);
+		const form = document.querySelector('form'); // velger div classen = "form"
+		form.addEventListener('submit', handleSubmit); // legger til event på "send inn"-knappen 
   </script>
 </html>
