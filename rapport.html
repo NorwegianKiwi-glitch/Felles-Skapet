@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<html lang="no-NB">
+    <head>
+        <meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>How-We-Roll</title>
 		<link rel="stylesheet" href="assets/css/base.css">
         <link rel="stylesheet" href="assets/css/rapport.css">
@@ -18,36 +23,41 @@
 		</nav>
         <div id="content">
             <form id="formWrapper">
-                    <h2>Rapport</h2>
+                    <h2>Dine resultater</h2>
                     <p>Her kan du se dine resultater. <br>
-                    Legg inn time + trxid i Input feltet for å sammenligne med andre personer</p>
+                    Lim inn koden din!</p>
 
-                    <input type = "text" value = "" id = "output-id" style = "width: 350px">
-                    <input type = "button" id = "output-knapp" value = "Visualiser">
+                    <input type = "text" value = "" id = "output-id" style = "width: 350px"> <!-- koden man limer inn ("output-id") -->
+                    <input type = "button" id = "output-knapp" value = "Visualiser"> <!-- Knappen får sin egen id -->
 
                 <div>
                  <canvas id="Resultat"width="1200"height="600"
                     style="border:1px solid #000000; margin-left: 20px"></canvas>
                 </div>
+
+                <h2>Har du lyst til å sammenligne resultatene dine med kollegaene dine?</h2>
+				<h3>Behold koden din, og lim inn på <a href="Resultat.html">neste side</a></h3>
+
                 <script>
                     var canvas = document.getElementById("Resultat"); // Cavnvas ID
                     var ctx = canvas.getContext("2d"); // Sier at canvas skal være 2d
 
-                    var outputId = document.getElementById("output-id");
-                    var outputKnapp = document.getElementById("output-knapp");
+                    var outputId = document.getElementById("output-id"); // lager variabel som henter id-en fra html-filen
+                    var outputKnapp = document.getElementById("output-knapp"); // lager variabel som henter id-en fra html-filen
 
-                    var farger = ["green", "purple", "blue", "red", "orange", "pink", "beige", "lightblue"];
+                    var farger = ["green", "purple", "blue", "red", "orange", "pink", "beige", "lightblue"]; // Farger som blir tilfeldig valgt når en ny bruker limer inn sin personlige kode og skal få resulatet sitt presentert
                     var antallNavn = 0;
 
-                    outputKnapp.onclick = function () {hentData(outputId.value, farger[Math.floor(Math.random() * farger.length)]);}
+                    outputKnapp.onclick = function () {hentData(outputId.value, farger[Math.floor(Math.random() * farger.length)]);} // når "outputKnapp" blir trykket på, så skal den hente verdien fra den personlige koden ("outputId") og gi den en tilfeldig farge når den blir framstilt
 
             function hentData (svarId, navnFarge) {
-                        fetch(document.cookie)
+                        fetch("https://bacit.info/hwr/" + svarId + ".json", {cache: 'no-cache'})
+                        // fetch(document.cookie) // Funksjon for at cookie skal hente JSON URL
                         .then(response => response.json())
                         .then(data => {
-                            console.log(JSON.stringify(data, null, 11));
+                            console.log(JSON.stringify(data, null, 11)); // framstiller dataen i JSON skjemaet, og henter ut 11 verdier 
 
-                            drawCircles(data.LikeJobbeIGrupper, 45, navnFarge);   
+                            drawCircles(data.LikeJobbeIGrupper, 45, navnFarge); //Går inn i skjemaet og henter dataen fra "name". Sirkelen starter på høyde 45 link linje-høyden og får en tilfeldig farge tildelt
                             drawCircles(data.likeJobbeOmMorgen, 95, navnFarge);   
                             drawCircles(data.FortellProblemetIDypde, 145, navnFarge);   
                             drawCircles(data.SnakkeOmProblemet, 195, navnFarge);   
@@ -63,48 +73,49 @@
                             antallNavn++;                   
                     });
             }
+           
 
             function navn(name, y, color) {
-                ctx.fillStyle = "black";
-                ctx.fillText(name, 1065, y);
+                ctx.fillStyle = "black"; // navnene har farge svart
+                ctx.fillText(name, 1065, y); // navnene blir plassert horisontalt på 1065px
                 ctx.beginPath();
-                ctx.arc(1050, y-5, 4, 0, 2 * Math.PI, false);
-                ctx.fillStyle = color;
+                ctx.arc(1050, y-5, 4, 0, 2 * Math.PI, false); // sirklene ved navnene blir plassert ved siden av
+                ctx.fillStyle = color; // tilfeldig farge på sirklene blir utdelt
                 ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
-                ctx.stroke();
+                ctx.lineWidth = 1; // tykkelse på linjene rundt sirkelen 
+                ctx.strokeStyle = "black"; // farge på linjene blir svart
+                ctx.stroke(); // sirklene blir tegnet
                 ctx.closePath();
             }
 
             // Bruker sin id
-            hentData("document.cookie", "cyan"); // Henter JSON URL med data som er lagret i cookien fra personlighetstesten
+            // hentData("document.cookie", "cyan"); // Henter JSON URL med data som er lagret i cookien fra personlighetstesten
 
-            var offset;
+            var offset; // variabel for å forskyve verdiene som blir presentert med sirklene 
 
-            function drawCircles (data, y, color) {
-                if (data == 0) {offset = Math.floor(Math.random() * 80);}
-                else if (data == 100) {offset = Math.floor(Math.random() * (-80));}
-                else {offset = Math.floor(Math.random() * (40 - (-40)) + (-40));} 
+            function drawCircles (data, y, color) { //funksjon som tegner sirklene
+                if (data == 0) {offset = Math.floor(Math.random() * 80);} // hvis dataen har verdien 0, så vil den bli forskyvet med alt innenfor rekkevidden på 80px
+                else if (data == 100) {offset = Math.floor(Math.random() * (-80));} // hvis dataen har verdien 100, så vil den bli forskyvet med alt innenfor rekkevidden på 80px
+                else {offset = Math.floor(Math.random() * (40 - (-40)) + (-40));} // alle andre verdier vil bli forskyvet innenfor en rekkevidde på 40px
 
                 ctx.beginPath();
-                ctx.arc((180 + parseInt(data, 10)* 6) + offset , y, 4, 0, 2 * Math.PI, false);
-                ctx.fillStyle = color;
+                ctx.arc((180 + parseInt(data, 10)* 6) + offset , y, 4, 0, 2 * Math.PI, false); // parseInt henter dataen og plasser verdien litt forskyvet. Y-verdien blir bestemt på egenhånd. Størrelsen på sirklene blir bestemt av radiusen på 4. 
+                ctx.fillStyle = color; // fargen som blir fylt i sirkelen
                 ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = "black";
+                ctx.lineWidth = 1; // bredden på linjen
+                ctx.strokeStyle = "black"; // fargen på linjen rundt sirkelen 
                 ctx.stroke();
                 ctx.closePath();
             }         
             
-            function drawLines (y) {
+            function drawLines (y) { // tegner hvor linjene på canvaset skal ligge
                 ctx.beginPath();
                 ctx.moveTo(180, y);
                 ctx.lineTo(180 + (100 * 6), y); 
                 ctx.stroke();
             }
-             for (let i = 0; i < 11; i++) {
-                drawLines(45 + (i * 50));
+             for (let i = 0; i < 11; i++) { // tegner 11 linjer
+                drawLines(45 + (i * 50)); // mellomrommet mellom linjene
              }
              
 
@@ -112,17 +123,14 @@
                     ctx.fillText("Nøytral",475,20) //plassering av tekst
                     ctx.stroke();
 
-                     // jobbe alene eller i gruppe
+                    // legger til tekst for høyre og venstre av linjene
                 
-                     ctx.fillText("Jobbe alene", 20, 50);
+                    ctx.fillText("Jobbe alene", 20, 50);
                     ctx.fillText("Jobbe sammen", 800, 50);
 
-                    //Linje for resultat av  spørsmål Liker du å jobbe om morgen
                     ctx.font = "14px Arial";
                     ctx.fillText("Morgenfugl", 20, 100);
                     ctx.fillText("Nattugle", 800, 100);
-
-                    //gå i dybe eller rett på sak
                
                     ctx.fillText("Gå i dybden", 20, 150);
                     ctx.fillText("Rett på sak", 800, 150);
@@ -147,8 +155,6 @@
 
                     ctx.fillText("09-17", 20, 500);
                     ctx.fillText("Jeg har ikke noe timeplan", 800, 500);
-
-                    // annanas på pizza eller en krigsforbryter
                  
                     ctx.fillText("Annanas på pizza", 20, 550);
                     ctx.fillText("Send til graven", 800, 550);
