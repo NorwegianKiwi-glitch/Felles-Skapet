@@ -41,13 +41,12 @@
                     var outputKnapp = document.getElementById("output-knapp"); // lager variabel som henter id-en fra html-filen
 
                     var farger = ["green", "purple", "blue", "red", "orange", "pink", "beige", "lightblue"]; // Farger som blir tilfeldig valgt når en ny bruker limer inn sin personlige kode og skal få resulatet sitt presentert
-                    var antallNavn = 0;
+                    var antallNavn = 0; //starter på første linje satt
 
                     outputKnapp.onclick = function () {hentData(outputId.value, farger[Math.floor(Math.random() * farger.length)]);} // når "outputKnapp" blir trykket på, så skal den hente verdien fra den personlige koden ("outputId") og gi den en tilfeldig farge når den blir framstilt
 
             function hentData (svarId, navnFarge) {
                         fetch("https://bacit.info/hwr/" + svarId + ".json", {cache: 'no-cache'})
-                        // fetch(document.cookie) // Funksjon for at cookie skal hente JSON URL
                         .then(response => response.json())
                         .then(data => {
                             console.log(JSON.stringify(data, null, 11)); // framstiller dataen i JSON skjemaet, og henter ut 11 verdier 
@@ -64,8 +63,8 @@
                             drawCircles(data.FastJobbTidOverBestemmeSelv, 495, navnFarge);   
                             drawCircles(data.AnanasPaPizza, 545, navnFarge);   
 
-                            navn(data.name, 50 + (antallNavn * 40), navnFarge);
-                            antallNavn++;                   
+                            navn(data.name, 50 + (antallNavn * 40), navnFarge);// starter på høyde 50px, og mellomrommet nedover blir ganget med 40px
+                            antallNavn++; // plusser på 1               
                     });
             }
            
@@ -151,8 +150,8 @@
                     ctx.fillText("09-17", 20, 500);
                     ctx.fillText("Jeg har ikke noe timeplan", 800, 500);
                  
-                    ctx.fillText("Annanas på pizza", 20, 550);
-                    ctx.fillText("Send til graven", 800, 550);
+                    ctx.fillText("Individ", 20, 550);
+                    ctx.fillText("Fellesskap", 800, 550);
 
                     
 

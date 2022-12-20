@@ -37,7 +37,7 @@
 					<div>
 						<h4>Liker du å jobbe i grupper</h4>
 
-						<input type="radio" id="LikeJobbeIGrupper1" name="LikeJobbeIGrupper" value="0">
+						<input type="radio" id="LikeJobbeIGrupper1" name="LikeJobbeIGrupper" value="0"> <!-- gir navn og verdi til hver av radioknappene slik at disse kan knyttes opp til scriptet i de andre filene -->
 						<label for="LikeJobbeIGrupper1">Veldig uenig</label>
 
 						<input type="radio" id="LikeJobbeIGrupper3" name="LikeJobbeIGrupper" value="25">
@@ -223,7 +223,7 @@
 
 					</div>
 					<div>
-						<h4>Ananas på  pizza burde være en krigsforbrytelse og straffes med hentretelse på stedet </h4>
+						<h4>Jeg lytter til andres meninger </h4>
 
 						<input type="radio" id="AnanasPaPizza1" name="AnanasPaPizza" value="0">
 						<label for="AnanasPaPizza1">Veldig uenig</label>
@@ -289,7 +289,6 @@
 				let trxid = data.trxid; // henter id-en til dataen man putter inn
 				let bacitUrl = ("" + timestamp + "-" + trxid + ""); //lager personlig kode
 
-				// document.cookie = bacitUrl //lagrer JSON URl i en cookie
 				results.innerText = ("Dette er koden din: " + bacitUrl); // Legger til vår beskjed og viser din personlige kode
 
 				console.log(bacitUrl);
