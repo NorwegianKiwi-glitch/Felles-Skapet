@@ -13,5 +13,8 @@ Når vi var ferdig med en oppgave slik at den funker, men forsatt har forsatt ti
 
 ## Refleksjoner på oppgaven og sammarbeid
 Ideen om at man selv kunne få jobbe med det man ønsker og det ikke ble satt noen klare frister på deet var en dårlig idee i retrospekt når det kom til programmering og de obligatoriske delrapportene. Dette er fordi mange ikke valgte å jobbe videre med andre oppgaver når man var ferdig med sine oppgaver, når det var flere oppgaver igjen å gjøre. Det som vi burde ha gjort var å gjøre det klart og tydelig hvem som skal gjøre hva, og når dette SKAL være ferdig. Ett eksempel på dette er programmeringen av den dynamiske output siden. Orgianlt hadde Ajdin, Sultan og Viktor ansvaret på å gjøre dette, de fikk tenget hvordan de skulle se ut i Canvas med hjelp i starten, men når det kom til å gjøre det dynamisk måtte Sofia og Simon gjøre store deler av dette for å rekke at oppgaven skulle bli ferdig i tide.
+
+GitHub har vært ett bra og nyttig verktøy når det kommer til samarbeid i progammeringsprosjekter. Dette har vi erfart gjennom arbeid med flaggoppgaven og How-We-Roll. Det som gjør GitHub så nyttig å bruker er evnen til å enkelt dele koden på ett sentralt sted hvor alle har tilgang til det, kan sette opp KanBan board for planlegging av hva som må bli gjort, og Issus som kan bli brukt til lage en backlog med ting som må bli gjort
+
 ### Ting som kan forbedres og ikke er ferdig
 - JSON URL blir automatisk hentet av systemet slik av tabellen blir automatisk utfyllt.
