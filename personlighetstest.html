@@ -276,7 +276,8 @@
 
 			return response.json(); // parses JSON response into native JavaScriptobjects
 		}
-
+		
+		// kode hentet fra https://github.com/Gruppe-6B/how-we-roll/blob/main/how-we-roll.html
 		function handleSubmit(event) { // funksjonen henter data data fra JSON skjemaet, og presenterer en personlig kode når man trykker på submit-knappen ("Send inn")
 			event.preventDefault();
 			const data = new FormData(event.target); // lager en verdi som kan bli hentet av en fetch-metode 
